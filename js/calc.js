@@ -10,6 +10,7 @@ const digitsBtn = document.querySelectorAll(".digit");
 const calculBtn = document.querySelector(".calcul");
 const clearBtn = document.querySelector(".clear");
 const decimalBtn = document.querySelector(".decimal")
+const backBtn = document.querySelector(".back");
 
 inputNum.value;
 
@@ -21,6 +22,11 @@ clearBtn.addEventListener("click", (e) => {
     inputValue2 = null;
     result = null;
     shouldResetInput = false;
+})
+
+// Le bouton "back" efface le dernier chiffre entré par l'user. Vu que slice retourne un nouveau string, je dois le réassigner a inputNum.value.
+backBtn.addEventListener("click", () => {
+    inputNum.value = inputNum.value.slice(0, -1);
 })
 
 // Les boutons "Digits". Contient un check avec shouldResetInput : si un calcul a déjà été fait (true), vide la valeur affichée et reset la valeur-check. Sinon, comportement normal.
@@ -35,7 +41,7 @@ for (let i = 0; i < digitsBtn.length; i++) {
     })
 }
 
-// Le bouton "decimal". Si la valeur affichée ne contient pas déjà de décimal, l'input est autorisé, sinon : alert.
+// Le bouton "decimal". Contient le même check que digitsBtn comme ca l'utilisateur peut input une décimal en première valeur si il le souhaite. Si la valeur affichée ne contient pas déjà de décimal, l'input est autorisé, sinon : alert.
 decimalBtn.addEventListener("click", (e) => {
     if (shouldResetInput === true) {
             inputNum.value = "";
