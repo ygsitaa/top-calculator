@@ -5,7 +5,7 @@ let result;
 let shouldResetInput = false;
 
 const inputNum = document.querySelector("input");
-const operatorsBtn = document.querySelectorAll(".operators button");
+const operatorsBtn = document.querySelectorAll(".operator");
 const digitsBtn = document.querySelectorAll(".digit");
 const calculBtn = document.querySelector(".calcul");
 const clearBtn = document.querySelector(".clear");
@@ -24,7 +24,7 @@ clearBtn.addEventListener("click", (e) => {
     shouldResetInput = false;
 })
 
-// Le bouton "back" efface le dernier chiffre entré par l'user. Vu que slice retourne un nouveau string, je dois le réassigner a inputNum.value.
+// Le bouton "Back" efface le dernier chiffre de la valeur affichée.
 backBtn.addEventListener("click", () => {
     inputNum.value = inputNum.value.slice(0, -1);
 })
@@ -41,7 +41,7 @@ for (let i = 0; i < digitsBtn.length; i++) {
     })
 }
 
-// Le bouton "decimal". Contient le même check que digitsBtn comme ca l'utilisateur peut input une décimal en première valeur si il le souhaite. Si la valeur affichée ne contient pas déjà de décimal, l'input est autorisé, sinon : alert.
+// Le bouton "Decimal". Contient le même check que digitsBtn comme ca l'utilisateur peut input une décimal en première valeur si il le souhaite. Si la valeur affichée ne contient pas déjà de décimal, l'input est autorisé, sinon : alert.
 decimalBtn.addEventListener("click", (e) => {
     if (shouldResetInput === true) {
             inputNum.value = "";
@@ -55,7 +55,7 @@ decimalBtn.addEventListener("click", (e) => {
     }  
 })
 
-// Les boutons "operators". Au click d'un opérateur, stock la première valeur du calcul et la transforme en nombre, ainsi que l'opérateur sélectionné.
+// Les boutons "Operators". Au click d'un opérateur, stock la première valeur du calcul et la transforme en nombre, ainsi que l'opérateur sélectionné.
 for (let i = 0; i < operatorsBtn.length; i++) {
         operatorsBtn[i].addEventListener("click", (e) => {
             inputValue1 = Number(inputNum.value);
@@ -82,7 +82,7 @@ function calcul () {
     }
 }
 
-// Le bouton "calcul". onClick, stock la deuxième valeur du calcul et lance le calcul avec la fonction approprié ci-dessus. Post-calcul, affiche le résultat commme valeur affichée et donne a la valeur-check "true" pour avoir le comportement adéquat.
+// Le bouton "Calcul". onClick, stock la deuxième valeur du calcul et lance le calcul avec la fonction approprié ci-dessus. Post-calcul, affiche le résultat commme valeur affichée et donne a la valeur-check "true" pour avoir le comportement adéquat.
 calculBtn.addEventListener("click", (e) => {
     inputValue2 = Number(inputNum.value);
 

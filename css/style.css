@@ -3,26 +3,21 @@ body {
     width: 100vw;
     height: 100vh;
     overflow: hidden;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
+    background-color: whitesmoke;
 }
 
 .container {
     display: flex;
-    flex-direction: row;
     flex-wrap: wrap;
-    width: 15vw;
-    align-items: center;
-    justify-content: space-between;
+    width: 16vw;
+    height: 40vh;
+    outline: 10px solid pink;
 }
 
 .input-block {
     display: flex;
-    width: 100%;
-}
-.operators {
-    flex: 1;
 }
 
 .clear {
@@ -30,17 +25,10 @@ body {
 }
 
 button {
-    border: 1px white solid;
-}
-.container input {
-    flex: 1;
+    width: calc(100% / 3);
+    border: none;
 }
 
-.container button {
-    width: 31%;
-    height: 31%;
-}
-
-.lastbtn button {
+input {
     width: 100%;
 }
