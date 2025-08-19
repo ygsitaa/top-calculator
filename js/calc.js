@@ -96,6 +96,43 @@ calculBtn.addEventListener("click", (e) => {
     console.log(e);
 })
 
+// Support pour keyboard input
+window.addEventListener("keydown", (e) => {
+    // Boutons Digits (0-9)
+    if (e.key >= "0" && e.key <= "9") { // condition : si le bouton pressé fait parti de la catégorie
+        const btn = document.querySelector(`.digit[value="${e.key}"]`); // nouveau selecteur qui get la valeur key
+        if (btn) btn.click(); // simuler un mouseclick avec .click() simule aussi tout le code de l'eventListener "click"
+    }
+
+    // Bouton Decimal
+    if (e.key === ".") {
+        decimalBtn.click();
+    }
+
+    // Boutons Operators
+    if (["+", "-", "/", "*", "x", "X"].includes(e.key)) {
+        let op = e.key;
+        if (op === "*" || op === "x") op = "X"; // donne la bonne valeur de l'operator pour match la condition originelle
+        const btn = document.querySelector(`.operator[value="${op}"]`);
+        if (btn) btn.click();
+    }
+
+    // Bouton Enter or =
+    if (e.key === "Enter" || e.key === "=") {
+        calculBtn.click();
+    }
+
+    // Bouton Backspace
+    if (e.key === "Backspace") {
+        backBtn.click();
+    }
+
+    // Bouton Clear (Escape or c)
+    if (e.key === "Escape" || e.key.toLowerCase() === "c") {
+        clearBtn.click();
+    }
+});
+
 function add() {
     result = (inputValue1 + inputValue2);
     console.log(result);
