@@ -18,6 +18,7 @@ inputNum.value;
 clearBtn.addEventListener("click", (e) => {
     inputNum.value = null;
     operator = null;
+    op = null;
     inputValue1 = null;
     inputValue2 = null;
     result = null;
